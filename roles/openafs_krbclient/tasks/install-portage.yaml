@@ -1,0 +1,5 @@
+---
+- name: Install kerberos workstation
+  yum:
+    name: app-crypt/mit-krb5-appl
+    state: present

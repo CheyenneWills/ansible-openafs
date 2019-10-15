@@ -1,0 +1,10 @@
+---
+- name: Install kerberos server
+  portage:
+    package: app-crypt/mit-krb5
+    oneshot: yes
+    state: present
+- name: Install virtual/mit-krb5
+  portage:
+    package: virtual/krb5
+    state: present
