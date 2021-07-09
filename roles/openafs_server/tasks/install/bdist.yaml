@@ -30,11 +30,13 @@
     msg: "Installing {{ afs_install_archive }}"
 
 - name: Create directory
+  become: yes
   file:
     state: directory
     path: "{{ afs_tmpdir }}/install"
 
 - name: Upload binary distribution
+  become: yes
   unarchive:
     src: "{{ afs_install_archive }}"
     dest: "{{ afs_tmpdir }}/install/"

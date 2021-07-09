@@ -33,11 +33,13 @@
     msg: "Installing {{ afs_install_archive }}"
 
 - name: Create directory
+  become: yes
   file:
     state: directory
     path: "{{ afs_tmpdir }}/install"
 
 - name: Upload rpm package files
+  become: yes
   unarchive:
     src: "{{ afs_install_archive }}"
     dest: "{{ afs_tmpdir }}/install/"
@@ -140,6 +142,7 @@
   when: not ansible_check_mode
 
 - name: Cleanup uploaded rpm files
+  become: yes
   file:
     state: absent
     path: "{{ afs_tmpdir }}/install/{{ rpm }}"
